@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -18,8 +19,8 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
  
     if @post.save
-      redirect_to posts_path
-      # redirect_to @post
+      # redirect_to posts_path
+      redirect_to @post
     else
       render :new
     end
